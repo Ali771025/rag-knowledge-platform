@@ -1,0 +1,95 @@
+max_triggers_per_response: 2
+scarcity_min_trust: 0.6
+resistance_decay: 0.5
+trust_low_intensity_factor: 0.7
+
+trigger_policies:
+  CURIOSITY:
+    allowed_stages: [ENTRY, EXPLORATION, OPPORTUNITY_AWARENESS]
+    allowed_personas: [all]
+    required_modifiers: []
+    min_trust: 0.0
+    max_per_session: 4
+    requires_real_capacity_limit: false
+    softer_fallback: TRANSPARENCY
+
+  TRANSPARENCY:
+    allowed_stages: [ENTRY, EXPLORATION, TRUST_FORMATION]
+    allowed_personas: [all]
+    required_modifiers: [TRUST_LOW]
+    min_trust: 0.0
+    max_per_session: 5
+    requires_real_capacity_limit: false
+    softer_fallback: CURIOSITY
+
+  SCARCITY:
+    allowed_stages: [MICRO_COMMITMENT, ECONOMIC_ACTION]
+    allowed_personas: [hunter]
+    required_modifiers: []
+    min_trust: 0.6
+    max_per_session: 2
+    requires_real_capacity_limit: true
+    softer_fallback: CONTROL
+
+  CONTROL:
+    allowed_stages: [ENTRY, EXPLORATION, TRUST_FORMATION, OPPORTUNITY_AWARENESS, MICRO_COMMITMENT]
+    allowed_personas: [all]
+    required_modifiers: []
+    min_trust: 0.0
+    max_per_session: 5
+    requires_real_capacity_limit: false
+    softer_fallback: TRANSPARENCY
+
+  SOCIAL_PROOF:
+    allowed_stages: [EXPLORATION, TRUST_FORMATION, OPPORTUNITY_AWARENESS]
+    allowed_personas: [all]
+    required_modifiers: []
+    min_trust: 0.2
+    max_per_session: 3
+    requires_real_capacity_limit: false
+    softer_fallback: TRANSPARENCY
+
+  OPPORTUNITY_FRAMING:
+    allowed_stages: [OPPORTUNITY_AWARENESS, MICRO_COMMITMENT, ECONOMIC_ACTION]
+    allowed_personas: [hunter, architect]
+    required_modifiers: []
+    min_trust: 0.35
+    max_per_session: 3
+    requires_real_capacity_limit: false
+    softer_fallback: CONTROL
+
+  MICRO_COMMITMENT:
+    allowed_stages: [TRUST_FORMATION, OPPORTUNITY_AWARENESS, MICRO_COMMITMENT]
+    allowed_personas: [hunter, player, neutral]
+    required_modifiers: []
+    min_trust: 0.25
+    max_per_session: 3
+    requires_real_capacity_limit: false
+    softer_fallback: CURIOSITY
+
+  LOSS_AVOIDANCE:
+    allowed_stages: [TRUST_FORMATION, OPPORTUNITY_AWARENESS, MICRO_COMMITMENT]
+    allowed_personas: [saver, neutral]
+    required_modifiers: []
+    min_trust: 0.3
+    max_per_session: 3
+    requires_real_capacity_limit: false
+    softer_fallback: CONTROL
+
+  FUTURE_SELF:
+    allowed_stages: [EXPLORATION, OPPORTUNITY_AWARENESS, MICRO_COMMITMENT]
+    allowed_personas: [all]
+    required_modifiers: []
+    min_trust: 0.2
+    max_per_session: 3
+    requires_real_capacity_limit: false
+    softer_fallback: CURIOSITY
+
+  AUTHORITY:
+    allowed_stages: [TRUST_FORMATION, OPPORTUNITY_AWARENESS, ECONOMIC_ACTION]
+    allowed_personas: [architect, saver]
+    required_modifiers: [AUTHORITY_DRIVEN]
+    min_trust: 0.35
+    max_per_session: 2
+    requires_real_capacity_limit: false
+    softer_fallback: TRANSPARENCY

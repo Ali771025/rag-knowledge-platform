@@ -1,0 +1,164 @@
+{
+  "version": "1.0",
+  "persona": {
+    "confidence_threshold": 0.65,
+    "persona_weights": {
+      "explorer": 1.0,
+      "analyst": 1.1,
+      "pragmatist": 1.05,
+      "executor": 1.15
+    },
+    "modifier_thresholds": {
+      "high_intent": 0.72,
+      "budget_sensitive": 0.58,
+      "risk_averse": 0.63,
+      "time_constrained": 0.67,
+      "trust_low": 0.45,
+      "authority_driven": 0.4,
+      "community_driven": 0.4,
+      "individual_driven": 0.4,
+      "regulation_sensitive": 0.4
+    },
+    "signal_extraction": {
+      "hesitation_terms": ["maybe", "not sure", "i think", "perhaps", "unsure"],
+      "proof_terms": ["case study", "evidence", "proof", "benchmark", "example"],
+      "roi_terms": ["roi", "cost", "budget", "savings", "value"],
+      "analytical_terms": ["compare", "tradeoff", "analysis", "metric", "breakdown"],
+      "urgency_terms": ["asap", "today", "urgent", "deadline", "quickly"],
+      "gamification_terms": ["streak", "badge", "points", "level", "reward"],
+      "lexical_terms": ["help", "guide", "need", "want", "looking"],
+      "keyword_cap": 3,
+      "metadata_weights": {
+        "follow_up_count": 0.5,
+        "messages_in_session": 0.3,
+        "returning_user": 0.1,
+        "intent_events": 0.1
+      }
+    },
+    "scoring": {
+      "decay_factor_base": 0.9,
+      "confidence_neutral_threshold": 0.18,
+      "signal_weights": {
+        "explorer": {
+          "lexical_engagement": 0.65,
+          "hesitation": 0.15,
+          "proof_seeking": 0.35,
+          "roi_seeking": 0.4,
+          "analytical_depth": 0.45,
+          "urgency": 0.5,
+          "gamification_affinity": 0.9,
+          "engagement_persistence": 0.75,
+          "metadata_behavioral": 0.6
+        },
+        "analyst": {
+          "lexical_engagement": 0.45,
+          "hesitation": 0.2,
+          "proof_seeking": 0.95,
+          "roi_seeking": 0.75,
+          "analytical_depth": 1.0,
+          "urgency": 0.35,
+          "gamification_affinity": 0.2,
+          "engagement_persistence": 0.55,
+          "metadata_behavioral": 0.4
+        },
+        "pragmatist": {
+          "lexical_engagement": 0.55,
+          "hesitation": 0.1,
+          "proof_seeking": 0.5,
+          "roi_seeking": 1.0,
+          "analytical_depth": 0.6,
+          "urgency": 0.7,
+          "gamification_affinity": 0.25,
+          "engagement_persistence": 0.6,
+          "metadata_behavioral": 0.7
+        },
+        "executor": {
+          "lexical_engagement": 0.5,
+          "hesitation": -0.2,
+          "proof_seeking": 0.4,
+          "roi_seeking": 0.65,
+          "analytical_depth": 0.4,
+          "urgency": 1.0,
+          "gamification_affinity": 0.45,
+          "engagement_persistence": 0.7,
+          "metadata_behavioral": 0.85
+        }
+      }
+    },
+    "modifier_detection": {
+      "rules": {
+        "trust_low": {
+          "keywords": ["scam", "suspicious", "fake", "not trustworthy", "risky"],
+          "metadata_flags": ["negative_feedback", "trust_incident"],
+          "keyword_weight": 0.75,
+          "metadata_weight": 0.25,
+          "threshold": 0.35
+        },
+        "authority_driven": {
+          "keywords": ["expert", "official", "leader", "certified", "approved by"],
+          "metadata_flags": ["mentions_authority_source"],
+          "keyword_weight": 0.7,
+          "metadata_weight": 0.3,
+          "threshold": 0.35
+        },
+        "community_driven": {
+          "keywords": ["community", "peers", "everyone uses", "reviews", "what others say"],
+          "metadata_flags": ["community_interactions_high"],
+          "keyword_weight": 0.7,
+          "metadata_weight": 0.3,
+          "threshold": 0.35
+        },
+        "individual_driven": {
+          "keywords": ["for me", "my goals", "personal", "my workflow", "my use case"],
+          "metadata_flags": ["personalized_queries_high"],
+          "keyword_weight": 0.7,
+          "metadata_weight": 0.3,
+          "threshold": 0.35
+        },
+        "regulation_sensitive": {
+          "keywords": ["compliance", "regulation", "policy", "audit", "gdpr"],
+          "metadata_flags": ["regulated_industry", "compliance_required"],
+          "keyword_weight": 0.7,
+          "metadata_weight": 0.3,
+          "threshold": 0.35
+        }
+      }
+    },
+    "transition": {
+      "min_score_multiplier": 1.25,
+      "stability_window": 3,
+      "trust_low_speed_penalty": 0.5
+    }
+  },
+  "conversion": {
+    "transition_thresholds": {
+      "awareness": 0.2,
+      "consideration": 0.4,
+      "intent": 0.6,
+      "decision": 0.78,
+      "conversion": 0.92
+    },
+    "trigger_policy": {
+      "fallback_trigger": "educational_nudge",
+      "stage_trigger_map": {
+        "awareness": ["educational_nudge"],
+        "consideration": ["educational_nudge", "social_proof"],
+        "intent": ["social_proof", "urgency_prompt"],
+        "decision": ["urgency_prompt", "cta_offer"],
+        "conversion": ["cta_offer"]
+      }
+    },
+    "trust": {
+      "deltas": {
+        "repeated_interaction": 0.03,
+        "clarification_success": 0.05,
+        "objection": -0.04,
+        "confusion": -0.06
+      }
+    },
+    "cta_policy": {
+      "min_stage_for_cta": "decision",
+      "require_high_intent_modifier": false
+    }
+  }
+}

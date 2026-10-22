@@ -1,0 +1,77 @@
+{
+  "signal_windows": {
+    "short_term_turns": 15,
+    "behavioral_days": 30,
+    "stable_signal_categories": ["TRUST", "REGULATION", "DESIGN"],
+    "default_ttl_hours": 168
+  },
+  "scoring": {
+    "decay": 0.88,
+    "textual_weight": 1.0,
+    "behavioral_weight": 0.8,
+    "consistency_bonus": 0.12,
+    "contradiction_penalty": 0.16,
+    "confidence_threshold": 0.62,
+    "top_margin_threshold": 0.10,
+    "minimum_transition_evidence": 3,
+    "transition_score_ratio": 1.25
+  },
+  "confidence_weights": {
+    "signal_count": 0.14,
+    "signal_alignment": 0.18,
+    "behavior_consistency": 0.15,
+    "cross_channel_evidence": 0.12,
+    "intent_clarity": 0.10,
+    "top_score_margin": 0.16,
+    "contradiction_count": 0.08,
+    "history_length": 0.07
+  },
+  "signal_weights": {
+    "asks_how_it_works": 0.70,
+    "asks_about_scam": 1.00,
+    "requests_terms": 0.85,
+    "requests_economic_logic": 0.85,
+    "delays_action": 0.65,
+    "views_docs_without_action": 0.70,
+    "asks_about_risk": 0.95,
+    "asks_about_fairness": 0.80,
+    "asks_about_return": 0.90,
+    "asks_about_speed": 0.75,
+    "asks_about_advantage": 0.75,
+    "compares_options": 0.90,
+    "seeks_shortcut": 0.70,
+    "switches_paths_quickly": 0.65,
+    "asks_about_upgrade": 0.70,
+    "asks_best_option": 0.85,
+    "asks_about_level": 0.85,
+    "asks_about_badge": 0.85,
+    "asks_about_unlock": 0.85,
+    "checks_progress": 0.90,
+    "performs_small_repeated_actions": 0.75,
+    "daily_engagement": 0.70,
+    "asks_whats_next": 0.80,
+    "asks_design_reason": 0.90,
+    "asks_sustainability": 0.85,
+    "asks_game_theory": 1.00,
+    "asks_incentive_structure": 0.95,
+    "checks_attack_vectors": 1.00,
+    "finds_contradictions": 0.95,
+    "reads_lightpaper": 0.90,
+    "compares_scenarios": 0.95,
+    "suggests_design_change": 1.00
+  },
+  "modifier_rules": {
+    "TRUST_LOW": {"activation_threshold": 0.62, "deactivation_threshold": 0.35, "minimum_duration_turns": 3, "effect": "reduce_cta_and_lead_with_evidence"},
+    "AUTHORITY_DRIVEN": {"activation_threshold": 0.66, "deactivation_threshold": 0.38, "minimum_duration_turns": 3, "effect": "cite_primary_authoritative_sources"},
+    "COMMUNITY_DRIVEN": {"activation_threshold": 0.64, "deactivation_threshold": 0.36, "minimum_duration_turns": 3, "effect": "include_community_context"},
+    "INDIVIDUAL_DRIVEN": {"activation_threshold": 0.64, "deactivation_threshold": 0.36, "minimum_duration_turns": 3, "effect": "emphasize_personal_control"},
+    "REGULATION_SENSITIVE": {"activation_threshold": 0.60, "deactivation_threshold": 0.34, "minimum_duration_turns": 4, "effect": "increase_risk_and_terms_disclosure"}
+  },
+  "llm": {"max_retries": 1, "timeout_seconds": 8.0},
+  "achievement": {
+    "readiness_threshold": 0.65,
+    "referral_rule_version": "qora-referral-v1",
+    "completion_event_types": ["BACKEND_ACTION_CONFIRMED", "DOCUMENT_REVIEW_CONFIRMED", "MODULE_COMPLETED"],
+    "level_threshold_semantics": "INTERIM_CUMULATIVE_FROM_LEVEL_2"
+  }
+}

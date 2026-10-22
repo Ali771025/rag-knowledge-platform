@@ -1,0 +1,4 @@
+export const MAX_SUGGESTED_ACTIONS = 3;
+export const CHAT_INPUT_MAX_LENGTH = 1_000;
+export const STREAMING_SCROLL_THRESHOLD = 48;
+export const MESSAGE_ANIMATION_DURATION = 0.18;

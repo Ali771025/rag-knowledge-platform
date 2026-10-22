@@ -1,0 +1,39 @@
+version: "1.0"
+
+rules:
+  - when:
+      referral_link_type: influencer
+    set:
+      probable_intent: investor
+      risk_profile_hint: medium
+      referrer_type: influencer
+
+  - when:
+      referral_link_type: organic
+    set:
+      probable_intent: explorer
+      risk_profile_hint: low
+      referrer_type: organic
+
+  - when:
+      campaign_source: investment_campaign
+    set:
+      probable_intent: investor
+      campaign_type: investment
+
+  - when:
+      time_of_day:
+        - late_night
+        - night
+    set:
+      risk_profile_hint: high
+
+  - when:
+      referral_link_type: power_user_invite
+    set:
+      referrer_type: power_user
+
+  - when:
+      medium: referral
+    set:
+      campaign_type: referral

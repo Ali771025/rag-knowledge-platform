@@ -1,0 +1,46 @@
+version: "1.0"
+
+thresholds:
+  trust_block_threshold: 0.4
+  economic_min_trust: 0.6
+  saver_confidence_threshold: 0.7
+  rejection_softening_threshold: 2
+  default_economic_strength: MODERATE
+  softened_economic_strength: SOFT
+
+rules:
+  - id: hard_trust_block
+    priority: 10
+    condition:
+      trust_score_lt: 0.4
+    action: block_all
+
+  - id: stage_gate
+    priority: 20
+    condition:
+      stage_lt: MICRO_COMMITMENT
+      intent: INVESTOR
+    action: block_economic
+
+  - id: saver_soft_only
+    priority: 30
+    condition:
+      persona: SAVER
+      confidence_gt: 0.7
+      trust_score_lt: 0.6
+    action: allow_micro_commit_only
+
+  - id: hunter_architect_ready
+    priority: 40
+    condition:
+      persona_in: [HUNTER, ARCHITECT]
+      intent: INVESTOR
+      stage_gte: OPPORTUNITY_AWARENESS
+      trust_score_gte: 0.6
+    action: allow_economic
+
+  - id: rejection_softening
+    priority: 50
+    condition:
+      rejection_count_gte: 2
+    action: soften_economic

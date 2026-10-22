@@ -1,0 +1,153 @@
+version: "1.0"
+high_intensity_threshold: 0.85
+
+templates:
+  CURIOSITY:
+    allow_high: false
+    requires_capacity_flag: false
+    soft:
+      tone: exploratory
+      proof_style: lightweight_example
+      cta_style: optional_next_step
+      fragment: "Invite a simple what-if question and offer one concrete example."
+    medium:
+      tone: focused_exploration
+      proof_style: concise_signal
+      cta_style: guided_next_step
+      fragment: "Highlight one surprising insight and suggest a low-pressure follow-up."
+
+  TRANSPARENCY:
+    allow_high: false
+    requires_capacity_flag: false
+    soft:
+      tone: clear_reassuring
+      proof_style: plain_facts
+      cta_style: consent_first
+      fragment: "State assumptions clearly and ask permission before proposing a next step."
+    medium:
+      tone: candid_structured
+      proof_style: source_backed
+      cta_style: explicit_options
+      fragment: "Explain tradeoffs directly and present options with neutral wording."
+
+  CONTROL:
+    allow_high: false
+    requires_capacity_flag: false
+    soft:
+      tone: supportive
+      proof_style: checklist
+      cta_style: user_choice
+      fragment: "Offer a small menu of choices so the user can decide the pace."
+    medium:
+      tone: structured_support
+      proof_style: comparison
+      cta_style: choose_path
+      fragment: "Frame alternatives with clear constraints and let the user select a path."
+
+  SOCIAL_PROOF:
+    allow_high: false
+    requires_capacity_flag: false
+    soft:
+      tone: calm_confident
+      proof_style: anonymized_pattern
+      cta_style: reflection_prompt
+      fragment: "Reference a relevant usage pattern and ask whether it matches their context."
+    medium:
+      tone: evidence_forward
+      proof_style: concise_case
+      cta_style: optional_trial
+      fragment: "Share a brief, verifiable case signal and suggest a reversible trial."
+
+  LOSS_AVOIDANCE:
+    allow_high: false
+    requires_capacity_flag: false
+    soft:
+      tone: balanced
+      proof_style: risk_checklist
+      cta_style: prevention_step
+      fragment: "Outline avoidable risks and suggest one preventive action."
+    medium:
+      tone: pragmatic
+      proof_style: scenario_comparison
+      cta_style: risk_reduction
+      fragment: "Compare likely outcomes and recommend a low-risk protective step."
+
+  SCARCITY:
+    allow_high: false
+    requires_capacity_flag: true
+    soft:
+      tone: factual
+      proof_style: capacity_note
+      cta_style: availability_check
+      fragment: "Mention current capacity limits factually and offer to verify availability."
+    medium:
+      tone: clear_factual
+      proof_style: timestamped_capacity
+      cta_style: schedule_option
+      fragment: "Provide a transparent capacity update and propose scheduling if relevant."
+
+  MICRO_COMMITMENT:
+    allow_high: false
+    requires_capacity_flag: false
+    soft:
+      tone: encouraging
+      proof_style: simple_step
+      cta_style: tiny_commitment
+      fragment: "Suggest a very small next step that can be completed quickly."
+    medium:
+      tone: action_oriented
+      proof_style: progress_marker
+      cta_style: two_minute_action
+      fragment: "Propose a short action that provides immediate learning feedback."
+
+  FUTURE_SELF:
+    allow_high: false
+    requires_capacity_flag: false
+    soft:
+      tone: reflective
+      proof_style: horizon_snapshot
+      cta_style: vision_prompt
+      fragment: "Ask how today's decision supports their near-term goals."
+    medium:
+      tone: directional
+      proof_style: milestone_path
+      cta_style: plan_next_step
+      fragment: "Connect current choices to upcoming milestones with clear sequencing."
+
+  AUTHORITY:
+    allow_high: true
+    requires_capacity_flag: false
+    soft:
+      tone: respectful
+      proof_style: standard_reference
+      cta_style: optional_validation
+      fragment: "Cite relevant standards neutrally and invite independent verification."
+    medium:
+      tone: expert_guidance
+      proof_style: method_summary
+      cta_style: confidence_check
+      fragment: "Summarize the method behind the recommendation and ask for fit confirmation."
+    high:
+      tone: firm_clear
+      proof_style: audit_ready
+      cta_style: decisive_but_optional
+      fragment: "Present audit-ready reasoning and offer a clear optional decision path."
+
+  OPPORTUNITY_FRAMING:
+    allow_high: true
+    requires_capacity_flag: false
+    soft:
+      tone: optimistic
+      proof_style: upside_outline
+      cta_style: explore_benefit
+      fragment: "Frame potential upside with realistic assumptions and no pressure."
+    medium:
+      tone: strategic
+      proof_style: opportunity_matrix
+      cta_style: evaluate_readiness
+      fragment: "Map expected benefits against effort and invite readiness discussion."
+    high:
+      tone: strategic_confident
+      proof_style: quantified_upside
+      cta_style: commit_if_ready
+      fragment: "Quantify upside assumptions and invite action only if readiness is confirmed."
