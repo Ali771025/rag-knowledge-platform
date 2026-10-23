@@ -1,5 +1,10 @@
 # RAG Knowledge Platform
 
+<!-- project-contact:start -->
+**درخواست پروژه و همکاری با یوسف عمرانی:** [ارسال ایمیل](mailto:aliomrani916@gmail.com) · **aliomrani916@gmail.com** · [خدمات و تماس](https://ali771025.github.io/software-portfolio/contact/) · [معرفی نمونه‌کار](https://ali771025.github.io/software-portfolio/work/rag-knowledge-platform/)
+<!-- project-contact:end -->
+
+
 این مخزن نسخه عمومی و کم‌حجم سورس پروژه برای معرفی نمونه‌کار است.
 
 A FastAPI and React source portfolio for document ingestion, retrieval, conversation and knowledge graph workflows.

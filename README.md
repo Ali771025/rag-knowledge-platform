@@ -1,5 +1,10 @@
 # RAG Knowledge Platform
 
+<!-- project-contact:start -->
+**Work with Yosof Omrani:** [Email a project inquiry](mailto:aliomrani916@gmail.com) · **aliomrani916@gmail.com** · [Services & contact](https://ali771025.github.io/software-portfolio/en/contact/) · [Portfolio walkthrough](https://ali771025.github.io/software-portfolio/en/work/rag-knowledge-platform/)
+<!-- project-contact:end -->
+
+
 ![Project overview](docs/assets/overview.svg)
 
 A FastAPI and React source portfolio for document ingestion, retrieval, conversation and knowledge graph workflows.
